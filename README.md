@@ -1,2 +1,2 @@
 # HotelReservationSystem
-Version UC1
+Version UC2
