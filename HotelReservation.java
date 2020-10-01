@@ -1,4 +1,4 @@
-// Version UC5
+// Version UC6
 
 import java.text.*;
 import java.time.*;
@@ -66,10 +66,14 @@ public class HotelReservation {
 		List<Long> rentList = hotelList.stream().map(hotel -> rentCalculate(hotel, days, weekendDays))
 				.collect(Collectors.toList());
 		minRent = Collections.min(rentList);
-		Hotel cheapestHotel = hotelList.stream().filter(hotel -> rentCalculate(hotel, days, weekendDays) == minRent)
-				.findFirst().orElse(null);
+		List<Hotel> cheapestHotels = hotelList.stream()
+				.filter(hotel -> rentCalculate(hotel, days, weekendDays) == minRent).collect(Collectors.toList());
+		Hotel cheapestHotel = cheapestHotels.stream().max(Comparator.comparing(Hotel::getRatings)).orElse(null);
 
-		System.out.println("Cheapest Hotel: " + cheapestHotel.getName() + ", Total Cost: $" + minRent);
+		System.out.print("Cheapest Hotel(s): ");
+		System.out.print(cheapestHotel.getName() + ", Rating: " + cheapestHotel.getRatings());
+		System.out.println(", Total Cost: $" + minRent);
+
 	}
 
 	public static void main(String[] args) throws ParseException {
