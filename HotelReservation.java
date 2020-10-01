@@ -1,4 +1,4 @@
-// Version UC4
+// Version UC5
 
 import java.text.*;
 import java.time.*;
@@ -8,9 +8,9 @@ import java.time.temporal.ChronoField;
 
 public class HotelReservation {
 
-	private final static Hotel LAKEWOOD = new Hotel("Lakewood", 110, 90);
-	private final static Hotel BRIDGEWOOD = new Hotel("BridgeWood", 150, 50);
-	private final static Hotel RIDGEWOOD = new Hotel("Ridgewood", 220, 150);
+	private final static Hotel LAKEWOOD = new Hotel("Lakewood", 110, 90, 3);
+	private final static Hotel BRIDGEWOOD = new Hotel("BridgeWood", 150, 50, 4);
+	private final static Hotel RIDGEWOOD = new Hotel("Ridgewood", 220, 150, 5);
 
 	static List<Hotel> hotelList = new ArrayList<>() {
 		{
