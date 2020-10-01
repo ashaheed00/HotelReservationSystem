@@ -66,10 +66,14 @@ public class HotelReservation {
 		List<Long> rentList = hotelList.stream().map(hotel -> rentCalculate(hotel, days, weekendDays))
 				.collect(Collectors.toList());
 		minRent = Collections.min(rentList);
-		Hotel cheapestHotel = hotelList.stream().filter(hotel -> rentCalculate(hotel, days, weekendDays) == minRent)
-				.findFirst().orElse(null);
+		List<Hotel> cheapestHotel = hotelList.stream()
+				.filter(hotel -> rentCalculate(hotel, days, weekendDays) == minRent).collect(Collectors.toList());
 
-		System.out.println("Cheapest Hotel: " + cheapestHotel.getName() + ", Total Cost: $" + minRent);
+		System.out.print("Cheapest Hotel(s): ");
+		for (Hotel hotel : cheapestHotel)
+			System.out.print(hotel.getName() + " ");
+		System.out.println("with Total Cost: $" + minRent);
+
 	}
 
 	public static void main(String[] args) throws ParseException {
