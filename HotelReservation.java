@@ -1,4 +1,4 @@
-// Version UC11
+// Version UC12
 
 import java.text.*;
 import java.time.*;
@@ -134,8 +134,7 @@ public class HotelReservation {
 		String endDate = "12Sep2020";
 
 		HotelReservation hotelReservation = new HotelReservation();
-		// Already done using java stream
-		hotelReservation.cheapestBestRatedHotelReward(startDate, endDate);
-
+		// Already done using java stream, date and time
+		hotelReservation.cheapestBestRatedHotelRegular(startDate, endDate);
 	}
 }
